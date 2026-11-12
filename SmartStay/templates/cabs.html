@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% block title %}Cabs | SmartStay{% endblock %}
+{% block content %}
+<div class="page-head"><p class="eyebrow">COMPARE YOUR RIDE</p><h1>Cab fare comparison</h1><p class="muted">Enter your trip distance to estimate fares from different cab options.</p></div>
+<form class="search-bar" method="get"><label class="distance-label">Trip distance (km)<input type="number" min="1" max="2000" step="0.1" name="distance" value="{{ distance }}" required></label><button class="btn">Calculate fares</button></form>
+<div class="card-grid">
+{% for quote in cab_quotes %}
+<article class="listing-card"><div class="cab-art">🚘</div><div class="listing-body"><div class="between"><span class="tag">{{ quote.cab.cab_type }}</span><span class="rating">★ {{ quote.cab.rating }}</span></div><h3>{{ quote.cab.name }}</h3><p class="muted">{{ quote.cab.seats }} seats · ₹{{ "%.2f"|format(quote.cab.price_per_km) }}/km</p><div class="between price-row"><div><strong>₹{{ "%.2f"|format(quote.fare) }}</strong><small> estimated fare</small></div><a class="btn" href="{{ url_for('book_cab', cab_id=quote.cab.id) }}">Book cab</a></div></div></article>
+{% endfor %}
+</div><p class="notice">Fare estimates are illustrative and do not include live traffic, tolls, taxes or surge pricing.</p>
+{% endblock %}

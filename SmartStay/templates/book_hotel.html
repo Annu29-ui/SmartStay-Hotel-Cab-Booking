@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block title %}Book hotel | SmartStay{% endblock %}
+{% block content %}<div class="form-wrap"><form class="form-card" method="post">
+<p class="eyebrow">HOTEL RESERVATION</p><h2>{{ hotel.name }}</h2><p class="muted">{{ hotel.address }} · ₹{{ "%.0f"|format(hotel.price) }} per night</p>
+<label>Check-in date<input type="date" name="checkin" required></label>
+<label>Check-out date<input type="date" name="checkout" required></label>
+<label>Guests<input type="number" name="guests" min="1" max="10" value="1" required></label>
+<button class="btn full">Confirm demo booking</button><p class="small muted">The total is calculated from the number of nights.</p>
+</form></div>{% endblock %}

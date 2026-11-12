@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block title %}Book cab | SmartStay{% endblock %}
+{% block content %}<div class="form-wrap"><form class="form-card" method="post">
+<p class="eyebrow">CAB RESERVATION</p><h2>{{ cab.name }}</h2><p class="muted">{{ cab.cab_type }} · ₹{{ "%.2f"|format(cab.price_per_km) }} per km</p>
+<label>Pickup location<input name="pickup" required placeholder="Enter pickup"></label>
+<label>Drop location<input name="drop" required placeholder="Enter destination"></label>
+<label>Estimated distance (km)<input type="number" name="distance" min="1" max="2000" step="0.1" required></label>
+<button class="btn full">Confirm demo booking</button><p class="small muted">Fare is an estimate based on the distance you enter.</p>
+</form></div>{% endblock %}

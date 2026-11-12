@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}SmartStay | Plan your trip{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">TRAVEL SMARTER. SPEND BETTER.</p>
+    <h1>Your stay and ride,<br><span>sorted in one place.</span></h1>
+    <p class="muted">Compare hotel prices and cab fares before you book. Plan your trip with a clear cost estimate.</p>
+    <div class="hero-actions">
+      <a class="btn" href="{{ url_for('hotels') }}">Explore hotels</a>
+      <a class="btn btn-light" href="{{ url_for('cabs') }}">Compare cabs</a>
+    </div>
+  </div>
+  <div class="hero-panel">
+    <div class="panel-icon">✦</div><h3>Plan your trip budget</h3>
+    <p>Compare options by price and rating, then book the option that works for you.</p>
+    <div class="mini-stats"><div><strong>Hotels</strong><small>Compare stays</small></div><div><strong>Cabs</strong><small>Estimate fares</small></div></div>
+  </div>
+</section>
+<section class="section">
+  <div class="section-heading"><div><p class="eyebrow">HOW IT WORKS</p><h2>Everything for your journey</h2></div></div>
+  <div class="feature-grid">
+    <article class="feature"><div class="feature-icon">⌂</div><h3>Find a hotel</h3><p>Search by city and compare nightly prices, ratings and amenities.</p><a href="{{ url_for('hotels') }}">Browse hotels →</a></article>
+    <article class="feature"><div class="feature-icon">↗</div><h3>Compare cabs</h3><p>Estimate fares using distance and each cab's per-kilometre rate.</p><a href="{{ url_for('cabs') }}">Compare cabs →</a></article>
+    <article class="feature"><div class="feature-icon">▣</div><h3>Manage bookings</h3><p>Keep your hotel and cab demo bookings together in your dashboard.</p><a href="{{ url_for('dashboard') }}">My bookings →</a></article>
+  </div>
+</section>
+{% endblock %}

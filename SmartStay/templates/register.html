@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block title %}Sign up | SmartStay{% endblock %}
+{% block content %}<div class="form-wrap"><form class="form-card" method="post">
+<p class="eyebrow">GET STARTED</p><h2>Create your account</h2>
+<label>Full name<input name="name" required></label>
+<label>Email address<input type="email" name="email" required></label>
+<label>Password (minimum 6 characters)<input type="password" name="password" minlength="6" required></label>
+<button class="btn full" type="submit">Create account</button>
+<p class="muted center">Already registered? <a href="{{ url_for('login') }}">Login</a></p>
+</form></div>{% endblock %}

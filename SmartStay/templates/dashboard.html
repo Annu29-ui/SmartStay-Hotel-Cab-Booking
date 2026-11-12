@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block title %}My bookings | SmartStay{% endblock %}
+{% block content %}<div class="page-head"><p class="eyebrow">YOUR TRAVEL SPACE</p><h1>My bookings</h1><p class="muted">Hello {{ session.get('name') }}, here are your reservations.</p></div>
+{% for booking in bookings %}
+<div class="booking-row"><div><span class="tag">{{ booking.booking_type }}</span><h3>{{ booking.item_name }}</h3><p class="muted">{{ booking.details }}</p><small>{{ booking.booking_date }}</small></div><div class="booking-side"><strong>₹{{ "%.2f"|format(booking.total_price) }}</strong><span class="status {{ 'cancelled' if booking.status=='Cancelled' else '' }}">{{ booking.status }}</span>{% if booking.status=='Confirmed' %}<form method="post" action="{{ url_for('cancel_booking', booking_id=booking.id) }}"><button class="text-button">Cancel booking</button></form>{% endif %}</div></div>
+{% else %}<div class="empty-state"><h3>No bookings yet</h3><p class="muted">Your hotel and cab reservations will appear here.</p><a class="btn" href="{{ url_for('hotels') }}">Explore hotels</a></div>{% endfor %}
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block title %}Hotels | SmartStay{% endblock %}
+{% block content %}
+<div class="page-head"><p class="eyebrow">STAYS THAT FIT YOUR BUDGET</p><h1>Compare hotels</h1><p class="muted">Search a city, compare prices and choose your stay.</p></div>
+<form class="search-bar" method="get"><input name="city" placeholder="Enter city e.g. Lucknow" value="{{ city }}"><select name="sort"><option value="price" {% if sort=='price' %}selected{% endif %}>Lowest price first</option><option value="rating" {% if sort=='rating' %}selected{% endif %}>Highest rating first</option></select><button class="btn">Search</button></form>
+<div class="card-grid">
+{% for hotel in hotels %}
+<article class="listing-card"><div class="hotel-art">⌂<span>{{ hotel.city }}</span></div><div class="listing-body"><div class="between"><span class="tag">{{ hotel.city }}</span><span class="rating">★ {{ hotel.rating }}</span></div><h3>{{ hotel.name }}</h3><p class="muted">{{ hotel.address }}</p><p class="small">{{ hotel.amenities }}</p><div class="between price-row"><div><strong>₹{{ "%.0f"|format(hotel.price) }}</strong><small>/ night</small></div><a class="btn" href="{{ url_for('book_hotel', hotel_id=hotel.id) }}">Book stay</a></div></div></article>
+{% else %}<p>No hotels found. Try another city.</p>{% endfor %}
+</div>{% endblock %}
