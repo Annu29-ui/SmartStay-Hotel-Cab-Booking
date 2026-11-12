@@ -122,3 +122,8 @@ This is currently a functional local demonstration project.
 ---
 
 *SmartStay – Making hotel and cab comparison simpler.*
+## Screenshots
+
+### Homepage
+
+![SmartStay Homepage](screenshots/homepage.png)
