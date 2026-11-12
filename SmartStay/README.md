@@ -35,27 +35,13 @@ A web-based hotel and cab booking platform built using Python Flask, SQLite, HTM
 
 ```text
 SmartStay/
-│
 ├── app.py
 ├── requirements.txt
 ├── README.md
 ├── .gitignore
-│
 ├── templates/
-│   ├── base.html
-│   ├── index.html
-│   ├── login.html
-│   ├── register.html
-│   ├── hotels.html
-│   ├── cabs.html
-│   ├── book_hotel.html
-│   ├── book_cab.html
-│   ├── dashboard.html
-│   └── admin.html
-│
-└── static/
-    └── css/
-        └── style.css
+├── static/
+└── screenshots/
 ```
 
 ## Installation and Setup
